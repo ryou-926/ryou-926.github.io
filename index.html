@@ -1,45 +1,95 @@
-import React from 'react';
-import FeatureItem from './FeatureItem';
+<style>
+  .gentle-penguin-section {
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0 34px;
+  }
+  .content-wrapper {
+    display: flex;
+    gap: 20px;
+  }
+  .text-column {
+    display: flex;
+    flex-direction: column;
+    width: 59%;
+  }
+  .text-content {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    font-family: Judson, sans-serif;
+    font-weight: 400;
+    margin: 162px -26px 0 0;
+  }
+  .main-title {
+    color: #00a0b6;
+    font-size: 96px;
+  }
+  .description {
+    color: #000;
+    font-size: 48px;
+    margin: 5px 59px 0 17px;
+  }
+  .image-column {
+    display: flex;
+    flex-direction: column;
+    width: 41%;
+    margin-left: 20px;
+  }
+  .penguin-image {
+    aspect-ratio: 0.69;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    flex-grow: 1;
+  }
+  .red-text { color: #b60000; }
+  .yellow-text { color: #b6ae00; }
+  .blue-text { color: #0054b6; }
 
-interface Feature {
-  color: string;
-  text: string;
-}
+  @media (max-width: 991px) {
+    .gentle-penguin-section { padding: 0 20px; }
+    .content-wrapper {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    .text-column, .image-column { width: 100%; }
+    .text-content {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+    .main-title {
+      max-width: 100%;
+      font-size: 40px;
+    }
+    .description {
+      max-width: 100%;
+      margin-right: 10px;
+      font-size: 40px;
+    }
+    .penguin-image { max-width: 100%; }
+  }
+</style>
 
-const features: Feature[] = [
-  { color: 'text-red-700', text: '・聖光学院（神奈川）のマスコットキャラクター' },
-  { color: 'text-yellow-600', text: '・愛称はジェンペン（らしい）' },
-  { color: 'text-sky-700', text: '・聖光生はジェンペングッズをよくつけている' },
-  { color: 'text-black', text: '・聖光祭ではジェンペンの着ぐるみが登場する' }
-];
-
-const GentlePenguin: React.FC = () => {
-  return (
-    <main className="overflow-hidden px-9 bg-white max-md:px-5">
-      <div className="flex gap-5 max-md:flex-col">
-        <section className="flex flex-col w-[59%] max-md:ml-0 max-md:w-full">
-          <div className="flex z-10 flex-col mt-40 mr-0 max-md:mt-10 max-md:max-w-full">
-            <h1 className="text-8xl text-cyan-600 max-md:max-w-full max-md:text-4xl">
-              ジェントルペンギン
-            </h1>
-            <ul className="mt-1.5 mr-14 ml-4 text-5xl max-md:mr-2.5 max-md:max-w-full max-md:text-4xl">
-              {features.map((feature, index) => (
-                <FeatureItem key={index} color={feature.color} text={feature.text} />
-              ))}
-            </ul>
-          </div>
-        </section>
-        <aside className="flex flex-col ml-5 w-[41%] max-md:ml-0 max-md:w-full">
-          <img 
-            loading="lazy" 
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/a08156d382ff5a194c3dedf1e6aa6d36b5c6abba9d84db6c0ef7247896a2e68a?placeholderIfAbsent=true&apiKey=38c856488b9943f3907daabf1519bea4" 
-            alt="ジェントルペンギン mascot" 
-            className="object-contain grow w-full aspect-[0.69] max-md:max-w-full" 
-          />
-        </aside>
+<section class="gentle-penguin-section">
+  <div class="content-wrapper">
+    <div class="text-column">
+      <div class="text-content">
+        <h1 class="main-title">ジェントルペンギン</h1>
+        <p class="description">
+          <span class="red-text">・聖光学院（神奈川）のマスコットキャラクター</span>
+          <br><br>
+          <span class="yellow-text">・愛称はジェンペン（らしい）</span>
+          <br><br>
+          <span class="blue-text">・聖光生はジェンペングッズをよくつけている</span>
+          <br><br>
+          ・聖光祭ではジェンペンの着ぐるみが登場する
+        </p>
       </div>
-    </main>
-  );
-};
-
-export default GentlePenguin;
+    </div>
+    <div class="image-column">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a08156d382ff5a194c3dedf1e6aa6d36b5c6abba9d84db6c0ef7247896a2e68a?placeholderIfAbsent=true&apiKey=38c856488b9943f3907daabf1519bea4" class="penguin-image" alt="Gentle Penguin mascot character" />
+    </div>
+  </div>
+</section>
